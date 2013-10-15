@@ -23,6 +23,8 @@
 .row [class*="inner-column"].last{margin-right:0;}
 
 .inner-column4{width:47.4%}
+.inner-column3{width:34%}
+.inner-column5{width:60.8%}
 
 .row [class*="interior"] {display: block;float: left; margin-right: 5.201%}
 .row [class*="interior"].last{margin-right:0;}

@@ -965,6 +965,172 @@ window.log=function(){log.history=log.history||[];log.history.push(arguments);if
                 var trs = table.find('tr');
                 
                 methods.calculateAcciones(arrayElements, trs); //Vuelve a calcular el total
+            },
+            showInfo : function ( evento ){
+                var $item = $(this);
+                var $box = $item.find('.text-box');
+                var deploy = $item.attr('data-deploy');
+                
+                $('.text-box').removeClass('show');
+                $('.info').attr('data-deploy','false');
+                
+                $box.addClass('transition');
+                
+                if(deploy === 'false'){
+                    $box.addClass('show');
+                    $item.attr('data-deploy','true');
+                }else{
+                    $box.removeClass('show');
+                    $item.attr('data-deploy','false');
+                }
+                
+            },
+            selectTableType : function ( evento ){
+              var $item = $(this);
+              var $table = $item.parents('table');
+              
+              for(var i = 1; i <= 3; i ++){
+                  $table.find('[data-price="'+ i +'"]').text($item.attr('data-price-'+ i));
+              }
+
+            },
+            deployTarifas : function ( evento ){
+                evento.preventDefault();
+                var $item = $(this);
+                var lightbox = "";
+                
+                lightbox += '<div class="tarifas table-wrapp wrp2">';
+                lightbox += '<img src="http://diariofinanciero.ida.cl/templates/default/images/logos/logo.svg" data-png="http://diariofinanciero.ida.cl/templates/default/images/logos/logo.png" alt="Diario Financiero">';
+                lightbox += '<h2>Tablas de tarifas de servicios de suscripciones</h2>';
+                lightbox += '<div class="tarifas-wrapp">';
+                lightbox += '<table class="tarifa-table">';
+                lightbox += '<thead>';
+                lightbox += '<tr>';
+                lightbox += '<th>';
+                lightbox += '<div class="radio-wrp">';
+                lightbox += '<input id="check_anual" type="radio" name="tipo_tarifa" data-func="selectTableType" data-event="change" data-price-1="Gratis" data-price-2="$60.000" data-price-3="$78.500" checked/>';
+                lightbox += '<label for="check_anual">Anual</label>';
+                lightbox += '<input id="check_mensual" type="radio" name="tipo_tarifa" data-func="selectTableType" data-event="change" data-price-1="$60.000" data-price-2="$78.500" data-price-3="$125.000" />';
+                lightbox += '<label for="check_mensual">Mensual</label>';
+                lightbox += '</div>';
+                lightbox += '<p class="first-th"><strong>Productos y Servicios Incluidos</strong></p>';
+                lightbox += '</th>';
+                lightbox += '<th>';
+                lightbox += '<div class="th-wrapp">';
+                lightbox += 'DF Digital Limitado <span data-price="1">Gratis</span>';
+                lightbox += '</div>';
+                lightbox += '<a href="#" title="Suscribirse" rel="help" class="btn dark-orange">Seleccionar</a>';
+                lightbox += '</th>';
+                lightbox += '<th>';
+                lightbox += '<div class="th-wrapp">';
+                lightbox += 'DF Digital Full <span data-price="2">$60.000</span>';
+                lightbox += '</div>';
+                lightbox += '<a href="#" title="Suscribirse" rel="help" class="btn dark-orange">Seleccionar</a>';
+                lightbox += '</th>';
+                lightbox += '<th>';
+                lightbox += '<div class="th-wrapp">';
+                lightbox += 'DF Digital Full + Impreso <span data-price="3">$78.500</span>';
+                lightbox += '</div>';
+                lightbox += '<a href="#" title="Suscribirse" rel="help" class="btn dark-orange">Seleccionar</a>';
+                lightbox += '</th>';
+                lightbox += '</tr>';
+                lightbox += '</thead>';
+                lightbox += '<tbody>';
+                lightbox += '<tr>';
+                lightbox += '<td>Vista móvil y web <span class="info" data-func="showInfo" data-deploy="false"><span class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span></span></td>';
+                lightbox += '<td><span class="check limited">limitado</span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '</tr>';
+                lightbox += '<tr>';
+                lightbox += '<td>Titulares estándar <span class="info" data-func="showInfo" data-deploy="false"><span class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span></span></td>';
+                lightbox += '<td><span class="limited check">limitado</span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '</tr>';
+                lightbox += '<tr>';
+                lightbox += '<td>Archivo de noticias <span class="info" data-func="showInfo" data-deploy="false"><span class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span></span></td>';
+                lightbox += '<td><span class="limited check">limitado</span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '</tr>';
+                lightbox += '<tr>';
+                lightbox += '<td>DF UI <span class="info" data-func="showInfo" data-deploy="false"><span class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span></span></td>';
+                lightbox += '<td><span class="limited check">limitado</span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '</tr>';
+                lightbox += '<tr>';
+                lightbox += '<td>RIPE <span class="info" data-func="showInfo" data-deploy="false"><span class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span></span></td>';
+                lightbox += '<td></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '</tr>';
+                lightbox += '<tr>';
+                lightbox += '<td>DF TV <span class="info" data-func="showInfo" data-deploy="false"><span class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span></span></td>';
+                lightbox += '<td></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '</tr>';
+                lightbox += '<tr>';
+                lightbox += '<td>Aplicaciones DF <span class="info" data-func="showInfo" data-deploy="false"><span class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span></span></td>';
+                lightbox += '<td></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '</tr>';
+                lightbox += '<tr>';
+                lightbox += '<td>Extra Titulares <span class="info" data-func="showInfo" data-deploy="false"><span class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span></span></td>';
+                lightbox += '<td></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '</tr>';
+                lightbox += '<tr>';
+                lightbox += '<td>Papel Digital <span class="info" data-func="showInfo" data-deploy="false"><span class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span></span></td>';
+                lightbox += '<td></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '</tr>';
+                lightbox += '<tr>';
+                lightbox += '<td>Portafolio Personal <span class="info" data-func="showInfo" data-deploy="false"><span class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span></span></td>';
+                lightbox += '<td></td>';
+                lightbox += ' <td><span class="check"></span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '</tr>';
+                lightbox += '<tr>';
+                lightbox += '<td>Centro de Datos <span class="info" data-func="showInfo" data-deploy="false"><span class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span></span></td>';
+                lightbox += '<td></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '</tr>';
+                lightbox += '<tr>';
+                lightbox += '<td>Edición Impresa <span class="info" data-func="showInfo" data-deploy="false"><span class="text-box">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span></span></td>';
+                lightbox += '<td></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '<td><span class="check"></span></td>';
+                lightbox += '</tr>';
+                lightbox += '</tbody>';
+                lightbox += '<tfoot>';
+                lightbox += '<tr>';
+                lightbox += '<td></td>';
+                lightbox += '<td><a href="#" title="Suscribirse" rel="help" class="btn dark-orange">Seleccionar</a></td>';
+                lightbox += '<td><a href="#" title="Suscribirse" rel="help" class="btn dark-orange">Seleccionar</a></td>';
+                lightbox += '<td><a href="#" title="Suscribirse" rel="help" class="btn dark-orange">Seleccionar</a></td>';
+                lightbox += '</tr>';
+                lightbox += '</tfoot>';
+                lightbox += '</table>';
+                lightbox += '</div>';
+                lightbox += '<button class="btn cerrar" data-func="closeLightbox">Cerrar</button>';
+                lightbox += '</div>';
+                
+                $('body').append('<div class="cortina"></div>');
+                
+                $('.cortina').after(lightbox);
+                
+                methods.handlerEvents($('[data-func]'));//Inicialización del método usado para delegar eventos
+            },
+            closeLightbox : function ( evento ){
+                $('.cortina').remove();
+                $('.tarifas').remove();
             }        
         };
 
