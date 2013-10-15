@@ -1,0 +1,3 @@
+header, footer, nav, aside, .related, .breadcrumbs, .slide, .thumb, .banner-holder , .rotulo, .locked, ul li .entry, .single-tabs-buttons, .single-meta   { display: none !important; }
+ ul li:first-child .entry{display:block !important;} 
+ .column8{width:100% !important;} 

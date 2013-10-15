@@ -1,0 +1,20 @@
+.secondary-nav{width:29%}
+nav{width:71%;}
+nav a{padding-right:5px;}
+.secondary-nav a{padding-left:10px;}
+.indicadores {
+visibility: visible;
+display:none;
+}
+.wrapp-ingreso-sub .ingreso-column{width:46%;}
+.entry .slide{clear:both;}
+.sold-message .sold-content .col{width:31%;}
+.zen.fullIE{width:100% !important; padding:30px 200px;}
+.locked{ background: transparent url(../images/fondos/ie-back.png) top left repeat-y;}
+#wrapper{overflow-y: scroll;}
+
+.ie7 .top-header .searchForm input{width:68%;}
+.ie7 .top-header form .search-options{display:block; width:100%; float:none;}
+.ie7 .buttons-tab li{width:33%;}
+.ie7 .chart-options .chart-ul li .title{width:45%}
+.ie7 .column4{width:30%;}
