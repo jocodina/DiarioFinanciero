@@ -100,7 +100,38 @@
                 </div>
             </div>
         </div>
-        
+        <div class="suscripcion-fields">
+            <div class="box-sus">
+                <h2 class="paso"><span class="step-number">2</span>Ingresa tus datos personales</h2>
+                <div class="content-sus">
+                    <div class="col">
+                        <label for="rut">RUT</label>
+                        <input id="rut" type="number" name="usuario_rut" placeholder="11.111.111-1" required />
+                        <label for="nombre">Nombre / Razón Social</label>
+                        <input id="nombre" type="text" name="usuario_nombre" placeholder="Jorge Codina" required />
+                        <label for="fono">Teléfono (fijo o móvil)</label>
+                        <input id="fono" type="number" name="usuario_fono" placeholder="5222236841" required />
+                        <label for="mail">Email</label>
+                        <input id="mail" type="email" name="usuario_mail" placeholder="ejemplo@email.com" required />
+                        <label for="mail2">Confirmar Email</label>
+                        <input id="mail2" type="email" name="usuario_mail_confirm" placeholder="ejemplo@email.com" required />
+                    </div>
+                    <div class="col">
+                        <label>¿Es una Empresa?</label>
+                        <input id="tiposi" type="radio" name="usuario_tipo" required />
+                        <label for="tiposi">Si</label>
+                        <input id="tipono" type="radio" name="usuario_tipo" required />
+                        <label for="tipono">No</label>
+                        <label for="direccion">Dirección (calle y número)</label>
+                        <input id="direccion" type="text" name="usuario_direccion" placeholder="El Oidor 1890" required />
+                        <label for="region">Región</label>
+                        <select id="region" name="usuario_region" required >
+                            <option>Seleccione una región</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
         
     </section>
     <aside class="column4 last hide-on-phones">
